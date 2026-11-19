@@ -2,7 +2,7 @@
 #### USAGE:
 ```sh
 TOKEN=$(gcloud auth print-identity-token)
-
+QUERY="what are the core principles of bells theorem?"
 curl "https://gemma-app-123456789.us-central1.run.app/v1/chat/completions" \
  --location --silent --request "POST" \
  --header "Authorization: Bearer $TOKEN" \
@@ -12,7 +12,7 @@ curl "https://gemma-app-123456789.us-central1.run.app/v1/chat/completions" \
     "messages": [
       {
         "role": "user",
-        "content": "what are the core principles of bells theorem?"
+        "content": "'"$QUERY"'"
       }
     ],
     "temperature": 0.1,
